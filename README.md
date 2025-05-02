@@ -29,10 +29,13 @@ git clone https://github.com/seu-usuario/Sistema-de-gerenciamento-de-usuarios-co
 pip install -r requirements.txt
 ```
 
-3. Execute o sistema:
+3. ⚠️ Crie a pasta "data" no diretório raíz do projeto para armazenar os dados exportados.⚠️
+
+4. Execute o sistema:
 ```bash
 python run.py
 ```
+
 
 
 
