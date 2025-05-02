@@ -1,0 +1,22 @@
+# Arquivos do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Diretórios de ambiente virtual
+venv/
+env/
+
+# Arquivos de configuração do VS Code
+.vscode/
+
+# Arquivos de dados sensíveis
+data/users.json
+
+# Pytest cache
+.pytest_cache/
+
+# Arquivos temporários
+*.swp
+*.bak
+*.tmp
