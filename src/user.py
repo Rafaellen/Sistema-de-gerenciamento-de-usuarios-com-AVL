@@ -9,6 +9,6 @@ class User:
     
     @classmethod
     def validate_email(cls, email: str) -> bool:
-        """Valida o formato do e-mail usando regex"""
+        # regex
         pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
         return re.match(pattern, email) is not None

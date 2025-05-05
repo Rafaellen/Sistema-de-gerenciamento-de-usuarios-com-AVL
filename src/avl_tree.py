@@ -31,7 +31,7 @@ class AVLTree:
         
         balance = self._get_balance(node)
         
-        # Casos de rotação
+        # rotação
         if balance > 1 and user.name < node.left.user.name:
             return self._right_rotate(node)
         
@@ -79,7 +79,7 @@ class AVLTree:
         
         balance = self._get_balance(node)
         
-        # Rebalanceamento
+        # rebalanceamento
         if balance > 1 and self._get_balance(node.left) >= 0:
             return self._right_rotate(node)
         
@@ -122,7 +122,6 @@ class AVLTree:
             users.append(node.user)
             self._in_order_traversal(node.right, users)
     
-    # Métodos auxiliares
     def _get_height(self, node: Optional[AVLNode]) -> int:
         return node.height if node else 0
     

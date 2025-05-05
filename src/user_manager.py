@@ -3,8 +3,6 @@ import sys
 import os
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-
 from src.avl_tree import AVLTree
 from src.user import User
 from src.utils import Color, export_users, import_users
@@ -15,17 +13,14 @@ class UserManager:
         self.load_initial_data()
     
     def load_initial_data(self):
-        """Carrega dados iniciais do arquivo JSON"""
         users = import_users()
         for user in users:
             self.tree.insert(user)
     
     def generate_id(self) -> str:
-        """Gera um ID único para o usuário"""
         return str(uuid.uuid4())[:8]
     
     def add_user(self):
-        """Adiciona um novo usuário ao sistema"""
         print(f"\n{Color.HEADER}=== Adicionar Novo Usuário ==={Color.END}")
         
         name = input(f"{Color.BLUE}Nome: {Color.END}").strip()
@@ -50,7 +45,6 @@ class UserManager:
         print(f"ID: {user_id}")
     
     def remove_user(self):
-        """Remove um usuário do sistema"""
         print(f"\n{Color.HEADER}=== Remover Usuário ==={Color.END}")
         
         if len(self.tree) == 0:
@@ -65,7 +59,6 @@ class UserManager:
             print(f"\n{Color.FAIL}Usuário '{name}' não encontrado!{Color.END}")
     
     def search_user(self):
-        """Busca um usuário pelo nome"""
         print(f"\n{Color.HEADER}=== Buscar Usuário ==={Color.END}")
         
         if len(self.tree) == 0:
@@ -84,7 +77,6 @@ class UserManager:
             print(f"\n{Color.FAIL}Usuário '{name}' não encontrado!{Color.END}")
     
     def list_users(self):
-        """Lista todos os usuários em ordem alfabética"""
         print(f"\n{Color.HEADER}=== Lista de Usuários ({len(self.tree)} no total) ==={Color.END}")
         
         if len(self.tree) == 0:
@@ -98,14 +90,12 @@ class UserManager:
             print(f"E-mail: {user.email}")
     
     def export_data(self):
-        """Exporta os dados dos usuários para um arquivo JSON"""
         if export_users(self.tree.in_order_traversal()):
             print(f"\n{Color.GREEN}Dados exportados com sucesso!{Color.END}")
         else:
             print(f"\n{Color.FAIL}Falha ao exportar dados!{Color.END}")
     
     def show_menu(self):
-        """Exibe o menu principal"""
         print(f"\n{Color.HEADER}{Color.BOLD}=== Sistema de Gerenciamento de Usuários ==={Color.END}")
         print(f"{Color.BLUE}1. Adicionar Usuário{Color.END}")
         print(f"{Color.BLUE}2. Remover Usuário{Color.END}")
@@ -115,7 +105,6 @@ class UserManager:
         print(f"{Color.BLUE}0. Sair{Color.END}")
     
     def run(self):
-        """Inicia o sistema"""
         while True:
             self.show_menu()
             choice = input(f"\n{Color.GREEN}Escolha uma opção: {Color.END}").strip()
